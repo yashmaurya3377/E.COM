@@ -1,3 +1,4 @@
+
 window.onload = function () {
   const loggedInUser = localStorage.getItem("loggedInUser");
   if (loggedInUser) {
@@ -18,6 +19,7 @@ function handlereg() {
   const user = { name, email, password };
   localStorage.setItem(email, JSON.stringify(user));
   alert("Registered successfully!. you can login now");
+
   window.location.href = "login.html";
 }
 //user login

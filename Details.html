@@ -4,194 +4,247 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>viewdetail</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <title>Product Details</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
   <style>
-    .container-fluid {
-      top: 0px;
-      z-index: 1000;
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .navbar {
       background: linear-gradient(90deg, #1e3c72, #2a5298);
       box-shadow: 0 1px 6px 7px rgba(5, 76, 143, 0.589);
-      padding: 1%;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navbar-brand span {
+      color: #ffc107;
+      font-size: 1rem;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #ffc107 !important;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #007bff, #0056b3);
+      border: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(to right, #0056b3, #003d80);
+    }
+
+    .btn-warning {
+      background: linear-gradient(to right, #ffc107, #e0a800);
+      border: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn-warning:hover {
+      background: linear-gradient(to right, #e0a800, #d39e00);
+    }
+
+    .product-details {
+      margin-top: 80px;
+    }
+
+    .product-image {
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .review-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .footer {
+      background: #343a40;
+      color: #fff;
+      padding: 40px 0;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #ffc107;
+    }
+
+    .social-icons a {
+      font-size: 1.5rem;
+      margin-right: 10px;
     }
   </style>
 </head>
 
 <body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg text-white fixed-top p-0">
-    <div class="container-fluid ">
-      <img src="https://cdn-icons-png.flaticon.com/256/7360/7360313.png" style="margin-bottom: 15px; margin-left:20px;" height="40px" width="40px" alt="">
-      <a href="index.html" class="navbar-brand fw-bold fs-4 text-white">E.<span class="text-warning fs-6">Com</span></a>
-      <button class="navbar-toggler bg-white fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+      <img src="https://cdn-icons-png.flaticon.com/256/7360/7360313.png" height="40px" width="40px" alt="Logo" class="me-2">
+      <a href="index.html" class="navbar-brand fw-bold">E.<span class="text-warning">Com</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar">
-        <ul class="mx-auto navbar-nav">
-          <li class="nav-item me-1">
-            <a href="index.html" class="nav-link fs-6 text-white fw-bold">Home</a>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link"><i class="bi bi-house-door me-1"></i>Home</a>
           </li>
-          <li>
-            <a href="https://wa.me/8787256663" class="nav-link fs-6 text-white fw-bold">ContactUs</a>
+          <li class="nav-item">
+            <a href="https://wa.me/8787256663" class="nav-link"><i class="bi bi-telephone me-1"></i>Contact Us</a>
           </li>
-          <li class="nav-item me-1"></li>
-          <button class=" btn btn-warning h-25  position-relative" id="cartButton">cart
-            <span class="badge position-absolute  bg-danger rounded-pill" id="cartBadge">0</span>
-          </button>
-          </li>
-          <li class="nav-item ms-2">
-            <a href="" class="nav-link fs-6 text-white fw-bold">More</a>
-          </li>
-          <li class="nav-item ms-2">
-            <input type="text" name="" id="search" placeholder=" what do want" class="mt-2 ">
+          <li class="nav-item">
+            <button class="btn btn-warning position-relative" id="cartButton">
+              <i class="bi bi-cart me-1"></i>Cart
+              <span class="badge position-absolute top-0 start-100 translate-middle bg-danger rounded-pill" id="cartBadge">0</span>
+            </button>
           </li>
         </ul>
-        <!-- move on other page -->
-        <div id="authButtons">
-          <a href="login.html" class="btn btn-primary">LogIn</a>
-          <a href="register.html" class="btn btn-primary"> Register</a>
+        
+        <div class="ms-3">
+          <a href="login.html" class="btn btn-primary me-2"><i class="bi bi-box-arrow-in-right me-1"></i>LogIn</a>
+          <a href="register.html" class="btn btn-primary"><i class="bi bi-person-plus me-1"></i>Register</a>
         </div>
       </div>
     </div>
   </nav>
-  <!-- ViewDetail sectiom -->
 
-  <div class="container  pt-5 bg-danger-subtle d-flex">
-    <div class="col-6">
-      <div id="productId" class="p-5  "></div>
-    </div>
-    <div class="col-6 ">
-      <h4 class="mb-2 text-center fw-bold fst-italic">REVIEW</h4>
-      <div id="reviews-container"></div>
+  <!-- Product Details Section -->
+  <div class="container product-details">
+    <div class="row">
+      <div class="col-md-6">
+        <div id="productId" class="p-4"></div>
+      </div>
+      <div class="col-md-6">
+        <h4 class="mb-4 text-center fw-bold fst-italic">Customer Reviews</h4>
+        <div id="reviews-container"></div>
+      </div>
     </div>
   </div>
 
-  <footer>
-    <div class="container ms-5">
-        <div class="row">
-            <div class="col-md-3">
-                <h2>YASH</h2>
-                <p class="bi bi-geo" >Address: GAURIGANJ,AMETHI,<br> UP,INDIA</p>
-                <p class="bi bi-mailbox">Email: <a href="">yashmaurya3377@gmail.com</a></p>
-                <p>Phone: <a href="tel:(212)555-1234">+91 8787256663</a></p>
-                <a href="#" class="btn btn-outline-light">Get direction →</a>
-                <div class="social-icons mt-3">
-                    <a href="#" class="text-light me-2 "><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-light me-2"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#" class="text-light me-2"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-light me-2"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" class="text-light me-2"><i class="fab fa-pinterest"></i></a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <h3>Help</h3>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
-                    <li><a href="#" class="text-light text-decoration-none">Returns + Exchanges</a></li>
-                    <li><a href="#" class="text-light text-decoration-none">Shipping</a></li>
-                    <li><a href="#" class="text-light text-decoration-none">Terms & Conditions</a></li>
-                    <li><a href="#" class="text-light text-decoration-none">FAQs</a></li>
-                    <li><a href="#" class="text-light text-decoration-none">Compare</a></li>
-                    <li><a href="#" class="text-light text-decoration-none">My Wishlist</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h3>About Us</h3>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-light text-decoration-none">Our Story</a></li>
-                    <li><a href="#" class="text-light text-decoration-none">Visit Our Store</a></li>
-                    <li><a href="#" class="text-light text-decoration-none">Contact Us</a></li>
-                    <li><a href="#" class="text-light text-decoration-none">About Us</a></li>
-                    <li><a href="#" class="text-light text-decoration-none">Account</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h3>Sign Up for Email</h3>
-                <p>Sign up to get first dibs on new arrivals, sales, exclusive content, events and more!</p>
-                <form class="mb-3">
-                    <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Enter email...">
-                        <button type="submit" class="btn btn-outline-light">Subscribe →</button>
-                    </div>
-                </form>
-                <div class="language-currency">
-                    <select class="form-select mb-2">
-                        <option >USD</option>
-                        <option>EUR</option>
-                    </select>
-                    <select class="form-select">
-                        <option>English</option>
-                        <option>Spanish</option>
-                    </select>
-                </div>
-                <div> 
-                  <i class="fa-brands fa-cc-visa fa-sm" style="color: #987f25;">hello</i>
-                  <i class="fa-brands fa-amazon-pay" style="color: #60450b;"></i>
-                  <i class="fa-brands fa-google-pay fa-flip-vertical" style="color: #74C0FC;"></i>
-               </div>
-            </div>
+  <!-- Footer -->
+  <footer class="footer mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2>YASH</h2>
+          <p><i class="bi bi-geo me-2"></i>Address: GAURIGANJ, AMETHI, UP, INDIA</p>
+          <p><i class="bi bi-envelope me-2"></i>Email: <a href="mailto:yashmaurya3377@gmail.com">yashmaurya3377@gmail.com</a></p>
+          <p><i class="bi bi-telephone me-2"></i>Phone: <a href="tel:+918787256663">+91 8787256663</a></p>
+          <a href="#" class="btn btn-outline-light">Get Direction →</a>
+          <div class="social-icons mt-3">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
         </div>
-    </div>
-    <div class="row bg-dark text-white  border-top pt-2 overflow-x-hidden">
-      <div class="col text-center d-flex justify-content-center gap-3">
-        <span class="bi bi-facebook text-primary"></span>
-        <a href="https://www.instagram.com">
-          <span class="bi bi-instagram text-danger"></span></a>
-        <a href="https://www.facebook.com/yashatap.mauryvanshi">
-          <span class="bi bi-twitter text-primary"></span></a>
-        <a href="https://www.youtube.com/"> <span class="bi bi-youtube text-danger"></span></a>
-        <a href="https://www.linkedin"> <span class="bi bi-linkedin text-primary"></span></a>
-  
+        <div class="col-md-3">
+          <h3>Help</h3>
+          <ul class="list-unstyled">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Returns + Exchanges</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Compare</a></li>
+            <li><a href="#">My Wishlist</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h3>About Us</h3>
+          <ul class="list-unstyled">
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Visit Our Store</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Account</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h3>Sign Up for Email</h3>
+          <p>Sign up to get first dibs on new arrivals, sales, exclusive content, events, and more!</p>
+          <form class="mb-3">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Enter email...">
+              <button type="submit" class="btn btn-outline-light">Subscribe →</button>
+            </div>
+          </form>
+          <div class="payment-icons">
+            <i class="fab fa-cc-visa fa-2x me-2"></i>
+            <i class="fab fa-amazon-pay fa-2x me-2"></i>
+            <i class="fab fa-google-pay fa-2x"></i>
+          </div>
+        </div>
       </div>
-      <p class="text-center pb-0">© 2025 yash. All rights reserved.</p>
     </div>
-</footer>
+    <div class="text-center py-3 bg-dark">
+      <p class="mb-0">© 2025 Yash. All rights reserved.</p>
+    </div>
+  </footer>
 
-  <!-- js code -->
- 
+  <!-- JavaScript -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const product = JSON.parse(sessionStorage.getItem("selectedProduct"));
       console.log(product);
       document.querySelector("#productId").innerHTML = `
+        <h4 class="fw-bold">${product.title}</h4>
+        <img src="${product.thumbnail}" alt="${product.title}" class="img-fluid product-image">
+        <p><b>Description:</b> ${product.description}</p>
+        <p><b>Price:</b> $${product.price}</p>
+        <p><b>Discount:</b> ${product.discountPercentage}%</p>
+        <p><b>Category:</b> ${product.category}</p>
+        <p><b>Brand:</b> ${product.brand}</p>
+        <p><b>Delivery in:</b> ${product.shippingInformation}</p>
+        <p><b>Warranty:</b> ${product.warrantyInformation}</p>
+        <p><b>Minimum Order Quantity:</b> ${product.minimumOrderQuantity} Pic.</p>
+        <p><b>SKU Code:</b> ${product.sku}</p>
+        <p><b>Tags:</b> ${product.tags}</p>
+      `;
 
-      <h4 class=" fw-bold " >${product.title}</h4>
-      <img src="${product.thumbnail}" alt="" class="h-100" >
-          <p><b>description :</b>${product.description}</p>
-            <h5><b>Price</b>${product.price}</h5>
-            <h5><b>discount:</b>${product.discountPercentage}%</h5>
-          <p><b> category:</b>${product.category}</p>
-          <p><b>brand :</b>${product.brand}</p>
-          <p><b>delivery in:</b>${product.shippingInformation}</p>
-          <p><b>warranty:</b>${product.warrantyInformation}</p>
-          <p><b>minimumOrderQuantity :</b>${product.minimumOrderQuantity}Pic.</p>
-          <p><b>sku code:</b>${product.sku}</p>
-          <p><b>tags:</b>${product.tags}</p>
-          `;
-      // comment section
-      const reviewsContainer =  document.getElementById("reviews-container");
-
-product.reviews.forEach(reviews=>{
-  const reviewCard = document.createElement('div');
-  reviewCard.className = 'card shadow-lg mb-5'
-  reviewCard.innerHTML = 
-  `
-  <div class="card-body">
-      <h4 class="card-title">${reviews.reviewerName}</h4>
-      <h5 class="card-title">${reviews.reviewerEmail}</h5>
-      <p class="card-title"><b>Review:</b> ${reviews.comment} </p>
-      <p class="card-title"><b>Date:</b> ${reviews.date} </p>
-      <p class="card-title"><b>Rating:</b> ${reviews.rating} </p>
-  </div>
-  `
-  reviewsContainer.appendChild(reviewCard)
-
-})
+      const reviewsContainer = document.getElementById("reviews-container");
+      product.reviews.forEach(review => {
+        const reviewCard = document.createElement('div');
+        reviewCard.className = 'review-card';
+        reviewCard.innerHTML = `
+          <h4>${review.reviewerName}</h4>
+          <h5>${review.reviewerEmail}</h5>
+          <p><b>Review:</b> ${review.comment}</p>
+          <p><b>Date:</b> ${review.date}</p>
+          <p><b>Rating:</b> ${review.rating}</p>
+        `;
+        reviewsContainer.appendChild(reviewCard);
+      });
     });
- 
   </script>
-  <script src="js\auth.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
