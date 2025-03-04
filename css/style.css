@@ -4,4 +4,13 @@
 }
 body{
     background-color: transparent;
+    overflow-x: hidden;
+}
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding-top: 2G%;
+}
+footer a:hover {
+    color: #f8f9fa;
 }
