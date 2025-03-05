@@ -31,7 +31,7 @@ function handlelogin() {
     alert("login successfully");
     localStorage.setItem("loggedInUser", JSON.stringify(user));
     updateNavbarForLoggedInUser(user.name); 
-    window.location.href = "index.html";
+  
   } else {
     // Login failed
     alert("Invalid email or password");
