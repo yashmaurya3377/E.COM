@@ -190,8 +190,12 @@
       function changeQuantity(productId, change) {
         const cartItem = cart.find((item) => item.id === productId);
         if (cartItem) {
-          cartItem.quantity += change;
-        }
+    if (cartItem.quantity + change < 1) {
+      RemoveFromCart(productId);
+    } else {
+      cartItem.quantity += change;
+    }
+  }
         localStorage.setItem("cart", JSON.stringify(cart));
         displayCartItems();
       }

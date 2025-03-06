@@ -28,10 +28,11 @@ function handlelogin() {
   const password = document.getElementById("logpassword").value;
   const user = JSON.parse(localStorage.getItem(email));
   if (user && user.password === password) {
+    window.location.href = "index.html";
     alert("login successfully");
     localStorage.setItem("loggedInUser", JSON.stringify(user));
     updateNavbarForLoggedInUser(user.name); 
-  
+    window.location.href = "index.html";
   } else {
     // Login failed
     alert("Invalid email or password");
